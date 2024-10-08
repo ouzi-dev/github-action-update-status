@@ -60,7 +60,7 @@ class GithubHelper {
     initialize() {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11;
         return __awaiter(this, void 0, void 0, function* () {
-            if (github_1.context.eventName === 'pull_request') {
+            if (['pull_request', 'pull_request_target'].includes(github_1.context.eventName)) {
                 this.isPR = true;
                 this.owner = (_e = (_d = (_c = (_b = (_a = github_1.context.payload) === null || _a === void 0 ? void 0 : _a.pull_request) === null || _b === void 0 ? void 0 : _b.head) === null || _c === void 0 ? void 0 : _c.repo) === null || _d === void 0 ? void 0 : _d.owner) === null || _e === void 0 ? void 0 : _e.login;
                 this.repo = (_j = (_h = (_g = (_f = github_1.context.payload) === null || _f === void 0 ? void 0 : _f.pull_request) === null || _g === void 0 ? void 0 : _g.head) === null || _h === void 0 ? void 0 : _h.repo) === null || _j === void 0 ? void 0 : _j.name;
@@ -457,7 +457,7 @@ function validateEventType() {
         if (github.context.eventName !== 'pull_request' &&
             github.context.eventName !== 'pull_request_target' &&
             github.context.eventName !== 'push') {
-            throw new Error('Error, action only works for pull_request or push events!');
+            throw new Error('Error, action only works for pull_request, pull_request_target or push events!');
         }
     });
 }
