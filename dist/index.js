@@ -455,6 +455,7 @@ const github = __importStar(__nccwpck_require__(5438));
 function validateEventType() {
     return __awaiter(this, void 0, void 0, function* () {
         if (github.context.eventName !== 'pull_request' &&
+            github.context.eventName !== 'pull_request_target' &&
             github.context.eventName !== 'push') {
             throw new Error('Error, action only works for pull_request or push events!');
         }
