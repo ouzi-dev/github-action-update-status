@@ -9,8 +9,8 @@ A simple Github Action that allows us to update the status of a commit.
 
 GitHub does not update the status of a commit when running workflow and therefore tools that rely on the context/status of a given commit are not compatible with it.
 
-Currently the action supports `pull_request` and `push` events:
-* When the event is `pull_request`, the action will set the status to the last commit in the pull request at the moment the workflow was triggered.
+Currently the action supports `pull_request`, `pull_request_target` and `push` events:
+* When the event is `pull_request` or `pull_request_target`, the action will set the status to the last commit in the pull request at the moment the workflow was triggered.
 * When the event is `push`, the action will set the status to the last commit pushed at the moment the workflow was triggered.
 
 ## Input Parameters

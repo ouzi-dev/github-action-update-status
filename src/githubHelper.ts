@@ -34,7 +34,7 @@ class GithubHelper {
   }
 
   private async initialize(): Promise<void> {
-    if (context.eventName === 'pull_request') {
+    if (['pull_request', 'pull_request_target'].includes(context.eventName)) {
       this.isPR = true
       this.owner = context.payload?.pull_request?.head?.repo?.owner?.login
       this.repo = context.payload?.pull_request?.head?.repo?.name
